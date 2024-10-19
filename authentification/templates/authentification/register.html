@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creation de compte</title>
+</head>
+<body>
+    <center>
+        <h1>Creer votre compte</h1><br>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="username">Nom d'utilisateur:</label>
+            <input type="text" name="username" id="username"><br>
+
+            <label for="email">Adresse mail:</label>
+            <input type="email" name="mail" id="email"><br>
+            
+            <label for="password1">Mot de passe</label>
+            <input type="password" name="password1" id="password1"><br>
+
+            <label for="password2">Mot de passe</label>
+            <input type="password" name="password2" id="password2"><br>
+
+            <input type="submit" value="Envoyer">
+        </form>
+    </center>
+</body>
+</html>

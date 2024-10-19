@@ -1,0 +1,45 @@
+{% extends 'QRCODE/base.html' %}
+{% block tableau %}
+<div class="container mx-auto p-6">
+    <h1 class="text-2xl font-bold mb-6">Liste des QR Codes</h1>
+    <table class="min-w-full bg-white border border-gray-300 rounded-lg">
+        <thead>
+            <tr>
+                <th class="py-2 px-4 border-b border-gray-300 text-left">Phrase</th>
+                <th class="py-2 px-4 border-b border-gray-300 text-left">Description</th>
+                <th class="py-2 px-4 border-b border-gray-300 text-left">QR Code</th>
+                <th class="py-2 px-4 border-b border-gray-300 text-left">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for i in qr %}
+                <tr class="hover:bg-gray-100">
+                    <td class="py-2 px-4 border-b border-gray-300">{{ i.phrase }}</td>
+                    <td class="py-2 px-4 border-b border-gray-300">{{ i.description }}</td>
+                    <td class="py-2 px-4 border-b border-gray-300">
+                        <img src="{{i.code.url}}" alt="QR Code for " class="w-16 h-16">
+                    </td>
+                    <td class="py-2 px-4 border-b border-gray-300">
+                        <a href="" class="bg-blue-500 text-white px-4 py-2 rounded">Modifier</a>
+                        <form action="" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Supprimer</button>
+                        </form>
+                        <form action="" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Voir</button>
+                        </form>
+                        <form action="" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Modifier</button>
+                        </form>
+                    </td>
+                </tr>
+           {% endfor %}
+        </tbody>
+    </table>
+    <div class="mt-6">
+        <a href="{% url 'QRCODE:accueil' %}" class="bg-green-500 text-white px-4 py-2 rounded">Créer un QR Code</a>
+    </div>
+</div>
+{% endblock tableau %}
