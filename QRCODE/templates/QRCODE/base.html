@@ -24,8 +24,8 @@
                 <li><a href="#" class="text-white hover:text-teal-200">Contact</a></li>
                 {% if request.user.is_authenticated %}
                 <li><a href="{% url 'QRCODE:liste' %}" class="text-white hover:text-teal-200">Listes des QR</a></li>
-                <li><a href="{% url 'authentification:register' %}" class="text-white hover:text-teal-200">se deconnecter</a></li>
-                <li><a href="#" class="text-white hover:text-teal-200">Compte</a></li>
+                <li><a href="{% url 'authentification:logout' %}" class="text-white hover:text-teal-200">se deconnecter</a></li>
+                <li><a href="{% url 'authentification:compte' %}" class="text-white hover:text-teal-200">Compte</a></li>
                 {% else %}
                 <li><a href="{% url 'authentification:register' %}" class="text-white hover:text-teal-200">Créer un compte</a></li>
                 <li><a href="{% url 'authentification:login' %}" class="text-white hover:text-teal-200">Se connecter</a></li>
